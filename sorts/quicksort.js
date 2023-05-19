@@ -36,5 +36,3 @@ export default function quicksort(arr) {
 
   return [];
 }
-
-quicksort([5, 4, 6, 786, 23, 543, 1, 765, 87, 34, 543, 2, 45, 654, 213, 1]);
