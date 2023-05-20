@@ -34,6 +34,7 @@ export default function countingsort(arr) {
     count[a[i]] -= 1;
   }
 
+  return output;
   return [];
 }
 

@@ -1,5 +1,7 @@
 import "./style.css";
 import { getSortingAnimation } from "./utilities";
-import heapsort from "./sorts/heapsort";
+import test from "./sorts/test";
+
+test()
 
 // document.querySelector('#app').innerHTML = ``

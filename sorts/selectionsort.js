@@ -14,5 +14,6 @@ export default function selectionsort(arr) {
     [a[i], a[mnIndex]] = [a[mnIndex], a[i]];
   }
 
+  return a;
   return [];
 }

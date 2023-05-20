@@ -32,4 +32,5 @@ export default function quicksort(arr) {
   const N = a.length;
 
   __quicksort(a, 0, N - 1);
+  return a;
 }

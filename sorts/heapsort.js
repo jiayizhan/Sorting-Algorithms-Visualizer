@@ -24,5 +24,5 @@ export default function heapsort(arr) {
     heapify(a, i, 0);
   }
 
-  console.log(a)
+  return a;
 }

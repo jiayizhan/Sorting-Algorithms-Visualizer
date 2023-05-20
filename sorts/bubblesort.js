@@ -17,7 +17,6 @@ export default function bubblesort(arr) {
     i += 1;
   } while (swap);
 
-  console.log(a);
-
+  return a;
   return [];
 }
