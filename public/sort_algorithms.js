@@ -1,11 +1,11 @@
 const SORT_ALGORITHM = {
-  BUBBLESORT: "bubble",
-  SELECTIONSORT: "select",
-  MERGESORT: "merge",
-  QUICKSORT: "quick",
-  COUNTINGSORT: "count",
-  RADIXSORT: "radix",
-  HEAPSORT: "heap",
+  Quicksort: "quick",
+  Bubblesort: "bubble",
+  Selectionsort: "select",
+  Mergesort: "merge",
+  Countingsort: "count",
+  Radixsort: "radix",
+  Heapsort: "heap",
 };
 
 export default SORT_ALGORITHM;

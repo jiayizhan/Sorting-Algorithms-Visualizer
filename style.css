@@ -19,6 +19,7 @@ body {
   min-width: 320px;
   height: 100vh;
   background-color: var(--white);
+  user-select: none;
 }
 
 #app {
@@ -31,36 +32,130 @@ body {
   align-items: center;
 }
 
-header {
-  box-sizing: border-box;
-  height: 8vh;
-  width: 100%;
-  background-color: var(--grey);
-}
-
-main {
-  box-sizing: border-box;
-  border: 1px solid green;
-  flex: 1;
-  width: 100%;
-  max-width: 1280px;
-}
-
-.analitics {
-  position: absolute;
-}
-
-/* button {
-  border-radius: 8px;
+button {
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--dark);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
-} */
+  border-color: var(--black);
+}
+
+header {
+  box-sizing: border-box;
+  height: 8vh;
+  width: 100%;
+  padding: 0.5rem 5%;
+  background-color: var(--grey);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  -webkit-user-drag: none;
+  height: 100%;
+  width: auto;
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 769px) {
+  #logo {
+    display: none;
+  }
+}
+
+#controls {
+  height: 75%;
+  width: 80%;
+  max-width: 700px;
+  display: flex;
+  gap: 1rem;
+}
+
+#sort-select {
+  flex: 1;
+  color: var(--white);
+  background-color: var(--black);
+  outline: none;
+  padding: 0 0.5rem;
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-right: 0.5rem;
+}
+
+#controls button:not(#btn-stopSorting) {
+  color: var(--white);
+  border-radius: 3px;
+  text-align: center;
+  width: 6rem;
+}
+
+#btn-sort {
+  background-color: var(--teal);
+}
+
+@media screen and (max-width: 540px) {
+  #controls {
+    width: 60%;
+  }
+
+  #sort-select {
+    margin: 0;
+  }
+
+  #btn-newArray {
+    display: none;
+  }
+}
+
+#btn-stopSorting {
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  background-image: url("/stop-recording.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  left: -1rem;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 769px) {
+  #btn-stopSorting {
+    display: none;
+  }
+}
+
+#toggle-theory {
+  border-radius: 50%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  border: none;
+  background-image: url("/terminal-icon.svg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  transition: backdrop-filter 250ms;
+}
+#toggle-theory._ {
+  background-image: url("/half-terminal-icon.svg");
+}
+
+#toggle-theory:hover {
+  backdrop-filter: brightness(95%);
+}
+
+main {
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    rgba(61, 16, 16, 0) 0%,
+    rgba(57, 62, 70, 0.05) 100%
+  );
+  flex: 1;
+  width: 95%;
+  max-width: 1280px;
+}

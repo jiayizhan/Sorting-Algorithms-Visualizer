@@ -11,13 +11,20 @@
   <body>
     <div id="app">
       <header>
-        <img src="/logo.svg" alt="Logo" />
-        <div class="controls"></div>
+        <img src="/logo.svg" alt="Logo" id="logo" />
+        <div class="controls" id="controls">
+          <select id="sort-select"></select>
+          <button id="btn-shuffle">Shuffle</button>
+          <button id="btn-newArray">New Array</button>
+          <button id="btn-sort">Sort</button>
+          <button id="btn-stopSorting"></button>
+        </div>
+        <button id="toggle-theory" class="_"></button>
       </header>
       <main></main>
 
       <!-- using Animate.css -->
-      <div class="analytics"></div>
+      <!-- <div class="analytics"></div> -->
     </div>
     <script type="module" src="/main.js"></script>
   </body>
