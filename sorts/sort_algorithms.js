@@ -1,7 +1,7 @@
 const SORT_ALGORITHM = {
-  Quicksort: "quick",
   Bubblesort: "bubble",
   Selectionsort: "select",
+  Quicksort: "quick",
   Mergesort: "merge",
   Countingsort: "count",
   Radixsort: "radix",

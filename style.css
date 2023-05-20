@@ -13,7 +13,13 @@
   --black: rgb(34 40 49);
   --teal: rgb(0 173 181);
 
+  --compare1: rgb(165, 42, 42);
+  --compare2: rgb(210, 43, 43);
+  --swap: #007500;
+  --success: #007500;
+
   --app-height: 100vh;
+  --item-transition: 500ms;
 }
 
 body {
@@ -214,6 +220,7 @@ main {
   background-color: var(--black);
   box-sizing: border-box;
   position: absolute;
+  transition: left linear var(--item-transition);
 }
 
 #display > div.border {

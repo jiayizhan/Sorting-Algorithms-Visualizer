@@ -30,7 +30,7 @@ for (const [sortName, sortValue] of Object.entries(SORT_ALGORITHM)) {
 
 ///////////////////////////////////////////////////////////////
 
-const maxLength = Math.floor(window.innerWidth * 0.7);
+const maxLength = Math.floor(document.getElementById("display").getBoundingClientRect().width * 0.8);
 const lengthInput = document.getElementById("length-count");
 const lengthLabel = document.querySelector('label[for="length-count"]');
 
@@ -53,4 +53,9 @@ function sliderMove(e) {
 const btnNewArray = document.getElementById("btn-newArray");
 btnNewArray.addEventListener("click", () => {
   display.show(lengthInput.value);
+});
+
+const btnSort = document.getElementById("btn-sort");
+btnSort.addEventListener("click", () => {
+  display.sort(sortSelect.value);
 });
