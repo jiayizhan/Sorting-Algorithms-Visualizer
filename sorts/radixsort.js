@@ -15,7 +15,5 @@ export default function radixsort(arr) {
   for (let exp = 1; Math.floor(mx / exp) > 0; exp *= 10)
     countingsort(a, N, exp);
 
-  console.log(a);
-
   return [];
 }
