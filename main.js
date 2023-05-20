@@ -7,6 +7,7 @@ const lengthInput = document.getElementById("length-count");
 const lengthLabel = document.querySelector('label[for="length-count"]');
 const display = document.getElementById("display");
 
+const maxLength = Math.floor(window.innerWidth * 0.7);
 let arrayLength = 100;
 let itemLength;
 let domArray;
@@ -18,6 +19,8 @@ fillDisplay(arrayLength);
 document.getElementById("btn-newArray").onclick = () => {
   fillDisplay(arrayLength);
 };
+
+lengthInput.max = maxLength.toString();
 
 for (const [sortName, sortValue] of Object.entries(SORT_ALGORITHM)) {
   sortSelect.innerHTML += `<option value="${sortValue}">${sortName}</option>`;
@@ -42,7 +45,7 @@ lengthInput.onchange = (e) => {
   fillDisplay(arrayLength);
 };
 function sliderMove(e) {
-  lengthLabel.textContent = e?.target.value ?? 100;
+  lengthLabel.textContent = e?.target.value ?? Math.floor(maxLength / 10);
   arrayLength = parseInt(lengthLabel.textContent);
   itemLength = 100 / arrayLength;
 }
