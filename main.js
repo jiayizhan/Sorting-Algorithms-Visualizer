@@ -1,5 +1,5 @@
 import { getSortingAnimation } from "./utilities";
-import SORT_ALGORITHM from "./public/sort_algorithms";
+import SORT_ALGORITHM from "./sorts/sort_algorithms";
 
 // document.querySelector('#app').innerHTML = ``
 const sortSelect = document.getElementById("sort-select");
