@@ -120,7 +120,12 @@ header {
   background-repeat: no-repeat;
   position: relative;
   left: -1rem;
+  border: none;
   visibility: hidden;
+}
+
+#btn-stopSorting.show {
+  visibility: visible;
 }
 
 @media screen and (max-width: 769px) {
@@ -158,4 +163,57 @@ main {
   flex: 1;
   width: 95%;
   max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+}
+
+.length-count {
+  height: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.length-count > label {
+  width: 5ch;
+}
+
+#length-count {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  width: 50%;
+  height: 5px;
+  border-radius: 2.5px;
+  max-width: 300px;
+  background: var(--black);
+}
+
+#length-count::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 17px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--teal);
+  cursor: pointer;
+}
+
+#display {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#display > div {
+  background-color: var(--black);
+  box-sizing: border-box;
+  position: absolute;
+}
+
+#display > div.border {
+  transform: scaleX(0.95);
 }
