@@ -5,6 +5,7 @@ const SORT_ALGORITHM = {
   QUICKSORT: "quick",
   COUNTINGSORT: "count",
   RADIXSORT: "radix",
+  HEAPSORT: "heap",
 };
 
 export default SORT_ALGORITHM;
