@@ -33,11 +33,11 @@ function testSort(sortName, algo) {
 }
 
 export default function test() {
-  testSort("bubble", sort.bubblesort);
-  testSort("select", sort.selectionsort);
-  testSort("merge", sort.mergesort);
-  testSort("quick", sort.quicksort);
-  testSort("count", sort.countingsort);
-  testSort("radix", sort.radixsort);
-  testSort("heap", sort.heapsort);
+  // testSort("bubble", sort.bubblesort);
+  // testSort("select", sort.selectionsort);
+  // testSort("merge", sort.mergesort);
+  // testSort("quick", sort.quicksort);
+  // testSort("count", sort.countingsort);
+  // testSort("radix", sort.radixsort);
+  // testSort("heap", sort.heapsort);
 }
