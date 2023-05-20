@@ -12,12 +12,14 @@
   --dark: rgb(57 62 70);
   --black: rgb(34 40 49);
   --teal: rgb(0 173 181);
+
+  --app-height: 100vh;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  height: 100vh;
+  height: var(--app-height);
   background-color: var(--white);
   user-select: none;
 }
@@ -26,7 +28,7 @@ body {
   /* padding: 2rem; */
   /* text-align: center; */
   box-sizing: border-box;
-  height: 100vh;
+  height: var(--app-height);
   display: flex;
   flex-direction: column;
   align-items: center;

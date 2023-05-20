@@ -1,6 +1,13 @@
 import { getSortingAnimation } from "./utilities";
 import SORT_ALGORITHM from "./sorts/sort_algorithms";
 
+const appHeight = () => {
+  const doc = document.documentElement;
+  doc.style.setProperty("--app-height", `${window.innerHeight}px`);
+};
+window.addEventListener("resize", appHeight);
+appHeight();
+
 const sortSelect = document.getElementById("sort-select");
 const btnToggleTheory = document.getElementById("toggle-theory");
 const lengthInput = document.getElementById("length-count");
