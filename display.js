@@ -63,6 +63,7 @@ async function sort(algorithm) {
   let y = Math.floor(
     2891.697 * Math.E ** (-((alt.length - 1662.133) ** 2) / (2 * 437.8907 ** 2))
   );
+  if (alt.length <= 20) y = 1;
   let cont = y;
 
   for (const [action, ...items] of animations) {
@@ -74,6 +75,7 @@ async function sort(algorithm) {
         if (cont % y === 0) await delay(delayTime);
         domArray[alt[i]].style.background = "var(--black)";
         domArray[alt[j]].style.background = "var(--black)";
+        if (cont % y === 0) await delay(delayTime);
         break;
       }
       case "swap": {
