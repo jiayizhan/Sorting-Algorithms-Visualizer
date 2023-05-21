@@ -53,11 +53,17 @@ async function sort(algorithm) {
   const domArray = display.querySelectorAll("div");
   const alt = Array.from(Array(domArray.length).keys());
 
-  const delayTime = 5000 / (alt.length ** 2 / 3);
+  let delayTime = Math.floor(5000 / (alt.length ** 2 / 3));
+
   document.documentElement.style.setProperty(
     "--item-transition",
-    `${Math.floor(delayTime)}ms`
+    `${delayTime}ms`
   );
+
+  let y = Math.floor(
+    2891.697 * Math.E ** (-((alt.length - 1662.133) ** 2) / (2 * 437.8907 ** 2))
+  );
+  let cont = y;
 
   for (const [action, ...items] of animations) {
     switch (action) {
@@ -65,7 +71,7 @@ async function sort(algorithm) {
         const [i, j] = items;
         domArray[alt[i]].style.background = "var(--compare1)";
         domArray[alt[j]].style.background = "var(--compare2)";
-        await delay(delayTime);
+        if (cont % y === 0) await delay(delayTime);
         domArray[alt[i]].style.background = "var(--black)";
         domArray[alt[j]].style.background = "var(--black)";
         break;
@@ -78,18 +84,25 @@ async function sort(algorithm) {
         [alt[i], alt[j]] = [alt[j], alt[i]];
         domArray[alt[i]].style.background = "var(--swap)";
         domArray[alt[j]].style.background = "var(--swap)";
-        await delay(delayTime);
+        if (cont % y === 0) await delay(delayTime);
         domArray[alt[i]].style.background = "var(--black)";
         domArray[alt[j]].style.background = "var(--black)";
         break;
       }
-      case "color": {
+      case "color":
         const [i] = items;
         domArray[alt[i]].style.background = "var(--success)";
-        await delay(delayTime);
         break;
-      }
     }
+    cont += 1;
+  }
+
+  y = Math.ceil(y / 10);
+
+  for (const i of alt) {
+    domArray[i].style.background = "var(--teal)";
+    if (cont % y === 0) await delay(delayTime);
+    cont++;
   }
 }
 

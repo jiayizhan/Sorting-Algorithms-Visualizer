@@ -213,7 +213,7 @@ main {
   flex: 1;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 #display > div {

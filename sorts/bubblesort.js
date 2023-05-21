@@ -19,7 +19,6 @@ export default function bubblesort(arr) {
       }
     }
     i += 1;
-    animations.push(["color", N - i]);
   } while (swap);
 
   return animations;
