@@ -4,6 +4,8 @@ import * as display from "./display";
 const appHeight = () => {
   const doc = document.documentElement;
   doc.style.setProperty("--app-height", `${window.innerHeight}px`);
+  if (window.innerWidth <= 769)
+    document.getElementById("display").style.alignItems = "end";
 };
 window.addEventListener("resize", appHeight);
 appHeight();
@@ -66,9 +68,15 @@ function sliderMove(e) {
 const btnNewArray = document.getElementById("btn-newArray");
 btnNewArray.addEventListener("click", () => {
   display.show(lengthInput.value);
+  document.getElementById("btn-stopSorting").style.visibility = "hidden";
 });
 
 const btnSort = document.getElementById("btn-sort");
 btnSort.addEventListener("click", () => {
   display.sort(sortSelect.value);
+});
+
+const btnShuffle = document.getElementById("btn-shuffle");
+btnShuffle.addEventListener("click", () => {
+  display.shuffle();
 });

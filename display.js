@@ -1,15 +1,20 @@
 import * as sortingAlgorithms from "./sorts/index";
 import SORT_ALGORITHM from "./sorts/sort_algorithms";
+import ACTIONS from "./sorts/actions";
+
+console.log(sortingAlgorithms);
 
 var display = null;
 var array = [];
 var alt = [];
+var continueAsync = false;
 
 function initialize(_display) {
   display = _display;
 }
 
 function show(len) {
+  continueAsync = false;
   display.innerHTML = "";
   len = parseInt(len);
   array.length = len;
@@ -50,7 +55,19 @@ function getAnimations(algorithm) {
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+function disableButtons() {
+  document.getElementById("btn-shuffle").disabled = true;
+  document.getElementById("btn-sort").disabled = true;
+}
+
+function activeButtons() {
+  document.getElementById("btn-shuffle").disabled = false;
+  document.getElementById("btn-sort").disabled = false;
+}
+
 async function sort(algorithm) {
+  continueAsync = true;
+  disableButtons();
   const animations = getAnimations(algorithm);
 
   const domArray = display.querySelectorAll("div");
@@ -73,15 +90,19 @@ async function sort(algorithm) {
 
   const btnSorting = document.getElementById("btn-stopSorting");
   btnSorting.style.visibility = "visible";
-  let continueSorting = true;
   btnSorting.onclick = (e) => {
     e.target.style.visibility = "hidden";
-    continueSorting = false;
+    activeButtons();
+    continueAsync = false;
   };
 
   for (const [action, ...items] of animations) {
+    if (!continueAsync) {
+      activeButtons();
+      return;
+    }
     switch (action) {
-      case "compare": {
+      case ACTIONS.compare: {
         const [i, j] = items;
         domArray[alt[i]].style.background = "var(--compare1)";
         domArray[alt[j]].style.background = "var(--compare2)";
@@ -91,7 +112,7 @@ async function sort(algorithm) {
         if (cont % y === 0) await delay(delayTime);
         break;
       }
-      case "swap": {
+      case ACTIONS.swap: {
         const [i, j] = items;
         const tempLeft = domArray[alt[i]].style.left;
         domArray[alt[i]].style.left = domArray[alt[j]].style.left;
@@ -105,20 +126,15 @@ async function sort(algorithm) {
         domArray[alt[j]].style.background = "var(--black)";
         break;
       }
-      case "color":
-        const [i] = items;
-        domArray[alt[i]].style.background = "var(--success)";
-        break;
     }
-    if (!continueSorting) return;
     cont += 1;
   }
-
-  console.log(array);
 
   y = Math.ceil(y / 10);
 
   btnSorting.click();
+  activeButtons();
+
   for (const i of alt) {
     domArray[i].style.background = "var(--teal)";
     if (cont % y === 0) await delay(delayTime);
@@ -126,4 +142,33 @@ async function sort(algorithm) {
   }
 }
 
-export { initialize, show, sort };
+async function shuffle() {
+  continueAsync = true;
+  const animations = sortingAlgorithms.shuffle(array);
+  const domArray = display.querySelectorAll("div");
+  let delayTime = Math.floor(5000 / (alt.length ** 2 / 3));
+  let y =
+    Math.floor(
+      2891.697 *
+        Math.E ** (-((alt.length - 1662.133) ** 2) / (2 * 437.8907 ** 2))
+    ) + 1;
+  if (alt.length <= 20) y = 1;
+  let cont = y;
+  for (const [_, i, j] of animations) {
+    if (!continueAsync) return;
+    const tempLeft = domArray[alt[i]].style.left;
+    domArray[alt[i]].style.left = domArray[alt[j]].style.left;
+    domArray[alt[j]].style.left = tempLeft;
+    [alt[i], alt[j]] = [alt[j], alt[i]];
+    [array[i], array[j]] = [array[j], array[i]];
+    domArray[alt[i]].style.background = "var(--swap)";
+    domArray[alt[j]].style.background = "var(--swap)";
+    if (cont % y === 0) await delay(delayTime);
+    domArray[alt[i]].style.background = "var(--black)";
+    domArray[alt[j]].style.background = "var(--black)";
+    if (cont % y === 0) await delay(delayTime);
+    cont += 1;
+  }
+}
+
+export { initialize, show, sort, shuffle };

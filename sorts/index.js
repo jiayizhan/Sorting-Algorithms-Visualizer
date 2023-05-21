@@ -5,6 +5,7 @@ import quicksort from "./quicksort";
 import countingsort from "./countingsort";
 import radixsort from "./radixsort";
 import heapsort from "./heapsort";
+import shuffle from "./shuffle";
 
 export {
   bubblesort,
@@ -13,5 +14,6 @@ export {
   quicksort,
   countingsort,
   radixsort,
-  heapsort
+  heapsort,
+  shuffle
 };
