@@ -2,8 +2,6 @@ import * as sortingAlgorithms from "./sorts/index";
 import SORT_ALGORITHM from "./sorts/sort_algorithms";
 import ACTIONS from "./sorts/actions";
 
-console.log(sortingAlgorithms);
-
 var display = null;
 var array = [];
 var alt = [];
@@ -146,7 +144,8 @@ async function shuffle() {
   continueAsync = true;
   const animations = sortingAlgorithms.shuffle(array);
   const domArray = display.querySelectorAll("div");
-  let delayTime = Math.floor(5000 / (alt.length ** 2 / 3));
+  let delayTime = alt.length ** -1 * 10;
+  document.documentElement.style.setProperty("--item-transition", `400ms`);
   let y =
     Math.floor(
       2891.697 *
@@ -161,9 +160,6 @@ async function shuffle() {
     domArray[alt[j]].style.left = tempLeft;
     [alt[i], alt[j]] = [alt[j], alt[i]];
     [array[i], array[j]] = [array[j], array[i]];
-    domArray[alt[i]].style.background = "var(--swap)";
-    domArray[alt[j]].style.background = "var(--swap)";
-    if (cont % y === 0) await delay(delayTime);
     domArray[alt[i]].style.background = "var(--black)";
     domArray[alt[j]].style.background = "var(--black)";
     if (cont % y === 0) await delay(delayTime);
@@ -171,4 +167,4 @@ async function shuffle() {
   }
 }
 
-export { initialize, show, sort, shuffle };
+export { initialize, show, sort, shuffle, activeButtons };

@@ -10,8 +10,6 @@ const appHeight = () => {
 window.addEventListener("resize", appHeight);
 appHeight();
 
-var faviconVersion = 2;
-
 document.getElementById("logo").onclick = (e) => {
   e.target.classList.toggle("baseline");
   const baseline = e.target.classList.contains("baseline");
@@ -19,6 +17,7 @@ document.getElementById("logo").onclick = (e) => {
   document.getElementById("display").style.alignItems = baseline
     ? "end"
     : "center";
+  document.querySelector("main").style.marginBottom = baseline ? "0" : "3px";
 };
 
 const sortSelect = document.getElementById("sort-select");
@@ -59,24 +58,25 @@ display.show(lengthInput.value);
 lengthInput.onmousemove = sliderMove;
 lengthInput.onchange = (e) => {
   sliderMove(e);
-  display.show(lengthInput.value);
+  btnNewArray.click();
 };
 function sliderMove(e) {
   lengthLabel.textContent = e.target.value;
 }
 
-const btnNewArray = document.getElementById("btn-newArray");
+var btnNewArray = document.getElementById("btn-newArray");
 btnNewArray.addEventListener("click", () => {
   display.show(lengthInput.value);
   document.getElementById("btn-stopSorting").style.visibility = "hidden";
+  display.activeButtons();
 });
 
-const btnSort = document.getElementById("btn-sort");
+var btnSort = document.getElementById("btn-sort");
 btnSort.addEventListener("click", () => {
   display.sort(sortSelect.value);
 });
 
-const btnShuffle = document.getElementById("btn-shuffle");
+var btnShuffle = document.getElementById("btn-shuffle");
 btnShuffle.addEventListener("click", () => {
   display.shuffle();
 });
