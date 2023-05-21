@@ -8,6 +8,17 @@ const appHeight = () => {
 window.addEventListener("resize", appHeight);
 appHeight();
 
+var faviconVersion = 2;
+
+document.getElementById("logo").onclick = (e) => {
+  e.target.classList.toggle("baseline");
+  const baseline = e.target.classList.contains("baseline");
+  e.target.src = baseline ? "/baseline-logo.svg" : "/logo.svg";
+  document.getElementById("display").style.alignItems = baseline
+    ? "end"
+    : "center";
+};
+
 const sortSelect = document.getElementById("sort-select");
 const btnToggleTheory = document.getElementById("toggle-theory");
 
@@ -30,7 +41,9 @@ for (const [sortName, sortValue] of Object.entries(SORT_ALGORITHM)) {
 
 ///////////////////////////////////////////////////////////////
 
-const maxLength = Math.floor(document.getElementById("display").getBoundingClientRect().width * 0.8);
+const maxLength = Math.floor(
+  document.getElementById("display").getBoundingClientRect().width * 0.8
+);
 const lengthInput = document.getElementById("length-count");
 const lengthLabel = document.querySelector('label[for="length-count"]');
 
