@@ -85,7 +85,8 @@ async function sort(algorithm) {
 
   if (
     algorithm === SORT_ALGORITHM.Quicksort ||
-    algorithm === SORT_ALGORITHM.Mergesort
+    algorithm === SORT_ALGORITHM.Mergesort ||
+    algorithm === SORT_ALGORITHM.Heapsort
   ) {
     y = Math.floor(
       1.085018 - (-0.2319416 / 0.006953776) * (1 - Math.E ** (-0.006953776 * y))
