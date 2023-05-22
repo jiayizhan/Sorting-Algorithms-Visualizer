@@ -83,6 +83,15 @@ async function sort(algorithm) {
         Math.E ** (-((alt.length - 1662.133) ** 2) / (2 * 437.8907 ** 2))
     ) + 1;
 
+  if (
+    algorithm === SORT_ALGORITHM.Quicksort ||
+    algorithm === SORT_ALGORITHM.Mergesort
+  ) {
+    y = Math.floor(
+      1.085018 - (-0.2319416 / 0.006953776) * (1 - Math.E ** (-0.006953776 * y))
+    );
+  }
+
   if (alt.length <= 20) y = 1;
   let cont = y;
 
