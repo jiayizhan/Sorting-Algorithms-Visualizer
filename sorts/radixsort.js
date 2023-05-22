@@ -10,11 +10,12 @@ export default function radixsort(arr) {
   const a = [...arr];
   const N = a.length;
 
+  const animations = [];
+
   const mx = getMax(a);
 
   for (let exp = 1; Math.floor(mx / exp) > 0; exp *= 10)
-    countingsort(a, N, exp);
+    countingsort(a, N, exp, animations);
 
-  return a;
-  return [];
+  return animations;
 }

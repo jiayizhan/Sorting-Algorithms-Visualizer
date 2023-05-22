@@ -93,6 +93,14 @@ async function sort(algorithm) {
     );
   }
 
+  if (algorithm === SORT_ALGORITHM.Countingsort) {
+    y = Math.ceil(alt.length / 300);
+  }
+
+  if (algorithm === SORT_ALGORITHM.Radixsort) {
+    y = Math.ceil(alt.length / 200);
+  }
+
   if (alt.length <= 20) y = 1;
   let cont = y;
 
@@ -171,16 +179,18 @@ async function sort(algorithm) {
     cont += 1;
   }
 
-  y = Math.ceil(y / 10);
+  console.log(array);
 
-  btnSorting.click();
-  activeButtons();
+  y = Math.ceil(y / 20);
 
   for (const i of alt) {
     domArray[i].style.background = "var(--teal)";
     if (cont % y === 0) await delay(delayTime);
     cont++;
   }
+
+  btnSorting.click();
+  activeButtons();
 }
 
 async function shuffle() {
