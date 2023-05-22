@@ -175,6 +175,12 @@ async function sort(algorithm) {
         if (cont % y === 0) await delay(delayTime);
         break;
       }
+      case ACTIONS.delay: {
+        if (cont % y === 0) await delay(delayTime);
+        break;
+      }
+      default:
+        break;
     }
     cont += 1;
   }

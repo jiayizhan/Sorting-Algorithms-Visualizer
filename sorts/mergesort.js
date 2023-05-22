@@ -19,10 +19,6 @@ function __merge(arr, left, mid, right) {
   k = left;
 
   while (i < N1 && j < N2) {
-    // concept mistake!!
-    //! FIX INDEX POSITIONS
-    animations.push([ACTIONS.compare, left + 1, mid + 1 + j]);
-
     if (L[i] <= R[j]) {
       arr[k] = L[i];
       animations.push([ACTIONS.resize, k, L[i]]);
@@ -57,6 +53,8 @@ function __merge(arr, left, mid, right) {
 
 function __mergesort(arr, start, end) {
   if (start >= end) return;
+
+  animations.push([ACTIONS.delay])
 
   const mid = start + Math.floor((end - start) / 2);
 
