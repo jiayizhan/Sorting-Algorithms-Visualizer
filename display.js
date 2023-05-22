@@ -142,7 +142,6 @@ async function sort(algorithm) {
       case ACTIONS.decolorize: {
         const [i] = items;
         domArray[alt[i]].style.background = "var(--black)";
-        if (cont % y === 0) await delay(delayTime);
         break;
       }
       case ACTIONS.flash: {
@@ -158,6 +157,13 @@ async function sort(algorithm) {
           domArray[alt[i]].style.background = "var(--black)";
           if (cont % y === 0) await delay(delayTime);
         }
+        break;
+      }
+      case ACTIONS.resize: {
+        const [i, value] = items;
+        array[i] = value;
+        domArray[alt[i]].style.height = `${value / 10}%`;
+        if (cont % y === 0) await delay(delayTime);
         break;
       }
     }

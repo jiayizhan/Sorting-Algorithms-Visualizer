@@ -4,6 +4,7 @@ const ACTIONS = {
   color: "color",
   decolorize: "decolorize",
   flash: "flash",
+  resize: "resize",
 };
 
 export default ACTIONS;
