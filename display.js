@@ -82,7 +82,7 @@ async function sort(algorithm) {
       2891.697 *
         Math.E ** (-((alt.length - 1662.133) ** 2) / (2 * 437.8907 ** 2))
     ) + 1;
-  console.log(y);
+
   if (alt.length <= 20) y = 1;
   let cont = y;
 
@@ -122,6 +122,33 @@ async function sort(algorithm) {
         if (cont % y === 0) await delay(delayTime);
         domArray[alt[i]].style.background = "var(--black)";
         domArray[alt[j]].style.background = "var(--black)";
+        break;
+      }
+      case ACTIONS.color: {
+        const [i] = items;
+        domArray[alt[i]].style.background = "var(--color)";
+        if (cont % y === 0) await delay(delayTime);
+        break;
+      }
+      case ACTIONS.decolorize: {
+        const [i] = items;
+        domArray[alt[i]].style.background = "var(--black)";
+        if (cont % y === 0) await delay(delayTime);
+        break;
+      }
+      case ACTIONS.flash: {
+        const [i, primaryColor] = items;
+        if (primaryColor) {
+          domArray[alt[i]].style.background = "var(--success)";
+          if (cont % y === 0) await delay(delayTime);
+          domArray[alt[i]].style.background = "var(--black)";
+          if (cont % y === 0) await delay(delayTime);
+        } else {
+          domArray[alt[i]].style.background = "var(--compare2)";
+          if (cont % y === 0) await delay(delayTime);
+          domArray[alt[i]].style.background = "var(--black)";
+          if (cont % y === 0) await delay(delayTime);
+        }
         break;
       }
     }
