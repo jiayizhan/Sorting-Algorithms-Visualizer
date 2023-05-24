@@ -1,5 +1,6 @@
 import SORT_ALGORITHM from "./sorts/sort_algorithms";
 import * as display from "./display";
+import { showPage, closePage } from "./pages";
 
 const appHeight = () => {
   const doc = document.documentElement;
@@ -79,4 +80,14 @@ btnSort.addEventListener("click", () => {
 var btnShuffle = document.getElementById("btn-shuffle");
 btnShuffle.addEventListener("click", () => {
   display.shuffle();
+});
+
+var btnShowTheory = document.getElementById("toggle-theory");
+btnShowTheory.addEventListener("click", () => {
+  showPage(sortSelect.value);
+});
+
+var btnCloseTheory = document.getElementById("close-theory");
+btnCloseTheory.addEventListener("click", () => {
+  closePage();
 });

@@ -15,12 +15,13 @@
 
   --compare1: rgb(165, 42, 42);
   --compare2: rgb(210, 43, 43);
-  --color: rgb(189, 78, 187); 
+  --color: rgb(189, 78, 187);
   --swap: #007500;
   --success: #007500;
 
   --app-height: 100vh;
   --item-transition: 400ms;
+
 }
 
 body {
@@ -29,11 +30,10 @@ body {
   height: var(--app-height);
   background-color: var(--white);
   user-select: none;
+  overflow: hidden;
 }
 
 #app {
-  /* padding: 2rem; */
-  /* text-align: center; */
   box-sizing: border-box;
   height: var(--app-height);
   display: flex;
@@ -228,4 +228,21 @@ main {
 
 #display > div.border {
   transform: scaleX(0.95);
+}
+
+#theory-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--app-height);
+  width: 100%;
+  font-size: 10rem;
+  background-color: black;
+  color: white;
+  z-index: 100;
+  display: none;
+}
+
+#theory-page.show {
+  display: block;
 }
