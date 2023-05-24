@@ -1,6 +1,6 @@
 import SORT_ALGORITHM from "./sorts/sort_algorithms";
 import * as display from "./display";
-import { showPage, closePage } from "./pages";
+import { showPage, closePage } from "./pages/index";
 
 const appHeight = () => {
   const doc = document.documentElement;

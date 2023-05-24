@@ -21,7 +21,6 @@
 
   --app-height: 100vh;
   --item-transition: 400ms;
-
 }
 
 body {
@@ -236,9 +235,7 @@ main {
   left: 0;
   height: var(--app-height);
   width: 100%;
-  font-size: 10rem;
-  background-color: black;
-  color: white;
+  background-color: rgba(0,0,0,0.5);
   z-index: 100;
   display: none;
 }

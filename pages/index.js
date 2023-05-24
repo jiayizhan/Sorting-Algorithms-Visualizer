@@ -1,4 +1,6 @@
+import { SHORT_HAND } from "../sorts/sort_algorithms";
 import "animate.css";
+import "./style.css";
 
 document.documentElement.style.setProperty("--animate-duration", "250ms");
 document.documentElement.style.setProperty("--animate-delay", "10ms");
@@ -10,27 +12,35 @@ const animateCSS = (element, animation, prefix = "animate__") =>
   new Promise((resolve) => {
     const animationName = `${prefix}${animation}`;
 
-    element.classList.add(`${prefix}animated`, animationName);
+    const node = document.querySelector(element);
+    node.classList.add(`${prefix}animated`, animationName);
 
     // When the animation ends, we clean the classes and resolve the Promise
     function handleAnimationEnd(event) {
       event.stopPropagation();
-      element.classList.remove(`${prefix}animated`, animationName);
+      node.classList.remove(`${prefix}animated`, animationName);
       resolve("Animation ended");
     }
 
-    element.addEventListener("animationend", handleAnimationEnd, {
+    node.addEventListener("animationend", handleAnimationEnd, {
       once: true,
     });
   });
 
+const renderPage = async (algorithm) => {
+  const res = await fetch(`/pages/template.html`);
+  const html = await res.text();
+  document.querySelector(".container").innerHTML = html;
+};
+
 const showPage = (algorithm) => {
+  renderPage(SHORT_HAND[algorithm]);
   theoryPage.classList.add("show");
-  animateCSS(theoryPage, "slideInRight");
+  animateCSS(".container", "slideInRight");
 };
 
 const closePage = () => {
-  animateCSS(theoryPage, "slideOutRight").then((_) => {
+  animateCSS(".container", "slideOutRight").then((_) => {
     theoryPage.classList.remove("show");
   });
 };
