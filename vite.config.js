@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: '/Sorting-Visualizer/'
+  base: '/Sorting-Algorithms-Visualizer/'
 });
