@@ -59,7 +59,7 @@ header {
   background-color: var(--grey);
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -81,6 +81,7 @@ header {
   height: 75%;
   width: 80%;
   max-width: 700px;
+  min-width: fit-content;
   display: flex;
   gap: 1rem;
 }
