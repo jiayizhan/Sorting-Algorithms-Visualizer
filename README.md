@@ -1,7 +1,7 @@
 # Welcome to Sorting Algorithms Visualizer 👋
 __A simple and relaxing application written in HTML, CSS and JavaScript only.__ <br>
 
-[DEMO HERE](https://jiayi3.github.io/Sorting-Algorithms-Visualizer/ "Sorting Algorithms Visualizer")
+[DEMO HERE](https://yoxux.github.io/Sorting-Algorithms-Visualizer/ "Sorting Algorithms Visualizer")
 
 <img width="100%" alt="Sorting Algorithms Visualizer" src="https://github.com/jiayi3/Sorting-Algorithms-Visualizer/assets/98108534/9713b3e9-9b1e-41fe-80ff-691886196b3c">
 
@@ -33,6 +33,6 @@ npm run dev
 
 <hr>
 
-> GitHub [@jiayi3](https://github.com/jiayi3) &nbsp;&middot;&nbsp;
+> GitHub [@jiayi3](https://github.com/yoxux) &nbsp;&middot;&nbsp;
 > LinkedIn &nbsp;&middot;&nbsp;
 > Twitter
