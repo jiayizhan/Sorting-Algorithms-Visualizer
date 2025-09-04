@@ -31,6 +31,6 @@ npm run dev
 
 <hr>
 
-> GitHub [@yoxux](https://github.com/yoxux) &nbsp;&middot;&nbsp;
+> GitHub [@jiayizhan](https://github.com/jiayizhan) &nbsp;&middot;&nbsp;
 > LinkedIn &nbsp;&middot;&nbsp;
 > Twitter
